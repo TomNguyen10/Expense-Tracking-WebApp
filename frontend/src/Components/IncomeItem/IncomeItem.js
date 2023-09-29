@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import {
   bitcoin,
-  book,
   calender,
   card,
   circle,
@@ -11,17 +10,15 @@ import {
   dollar,
   food,
   freelance,
-  medical,
   money,
   piggy,
   stocks,
-  takeaway,
   trash,
   tv,
   users,
-  yt,
 } from "../../utils/Icons";
 import Button from "../Button/Button";
+import { dateFormat } from "../../utils/dateFormat";
 
 function IncomeItem({
   id,
@@ -38,18 +35,12 @@ function IncomeItem({
     switch (category) {
       case "salary":
         return money;
-      case "freelancing":
-        return freelance;
       case "investments":
         return stocks;
       case "stocks":
         return users;
-      case "bitcoin":
-        return bitcoin;
       case "bank":
         return card;
-      case "youtube":
-        return yt;
       case "other":
         return piggy;
       default:
@@ -59,20 +50,16 @@ function IncomeItem({
 
   const expenseCatIcon = () => {
     switch (category) {
-      case "education":
-        return book;
       case "groceries":
         return food;
-      case "health":
-        return medical;
       case "subscriptions":
         return tv;
-      case "takeaways":
-        return takeaway;
-      case "clothing":
+      case "item":
         return clothing;
       case "travelling":
         return freelance;
+      case "diningOut":
+        return bitcoin;
       case "other":
         return circle;
       default:
@@ -95,7 +82,7 @@ function IncomeItem({
               {dollar} {amount}
             </p>
             <p>
-              {calender} {date}
+              {calender} {dateFormat(date)}
             </p>
             <p>
               {comment}
