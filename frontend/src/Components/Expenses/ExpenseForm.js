@@ -75,9 +75,9 @@ function ExpenseForm() {
           <option value="" disabled>
             Select Option
           </option>
-          <option value="grocery">Grocery</option>
+          <option value="groceries">Grocery</option>
           <option value="item">Item</option>
-          <option value="subcriptions">Subcriptions</option>
+          <option value="subscriptions">Subcriptions</option>
           <option value="travelling">Travelling</option>
           <option value="diningOut">Dining Out</option>
           <option value="other">Other</option>

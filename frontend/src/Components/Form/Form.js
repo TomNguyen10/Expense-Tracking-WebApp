@@ -7,7 +7,7 @@ import Button from "../Button/Button";
 import { plus } from "../../utils/Icons";
 
 function Form() {
-  const { addIncome, getIncomes } = useGlobalContext();
+  const { addIncome, getIncomes, error, setError } = useGlobalContext();
   const [inputState, setInputState] = useState({
     title: "",
     amount: "",
@@ -20,6 +20,7 @@ function Form() {
 
   const handleInput = (name) => (e) => {
     setInputState({ ...inputState, [name]: e.target.value });
+    setError("");
   };
 
   const handleSubmit = (e) => {
@@ -36,6 +37,7 @@ function Form() {
 
   return (
     <FormStyled onSubmit={handleSubmit}>
+      {error && <p className="error">{error}</p>}
       <div className="input-control">
         <input
           type="text"
@@ -86,7 +88,7 @@ function Form() {
         <textarea
           name="description"
           value={description}
-          placeholder="Add a reference"
+          placeholder="Add A Reference"
           id="description"
           cols="30"
           rows="4"
@@ -133,6 +135,7 @@ const FormStyled = styled.form`
       width: 100%;
     }
   }
+
   .selects {
     display: flex;
     justify-content: flex-end;
@@ -144,6 +147,7 @@ const FormStyled = styled.form`
       }
     }
   }
+
   .submit-btn {
     button {
       box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
